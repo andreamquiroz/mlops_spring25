@@ -1,0 +1,8 @@
+stages:
+  preprocess:
+    cmd: python src/preprocessing.py
+    deps:
+      - data/CAR DETAILS FROM CAR DEKHO.csv
+      - src/preprocessing.py
+    outs:
+      - data/processed_car_details.csv

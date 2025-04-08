@@ -1,0 +1,18 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python src/preprocessing.py
+    deps:
+    - path: data/CAR DETAILS FROM CAR DEKHO.csv
+      hash: md5
+      md5: 92770bca1b81e9339def909673097b97
+      size: 354635
+    - path: src/preprocessing.py
+      hash: md5
+      md5: 9047410c4ca37d84aaf4495259eb2017
+      size: 466
+    outs:
+    - path: data/processed_car_details.csv
+      hash: md5
+      md5: 8ee8e23174f33e5d9fe09b19e730fba0
+      size: 393736
