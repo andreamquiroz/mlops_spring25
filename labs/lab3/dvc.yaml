@@ -4,5 +4,6 @@ stages:
     deps:
       - data/CAR DETAILS FROM CAR DEKHO.csv
       - src/preprocessing.py
+      - params.yml
     outs:
       - data/processed_car_details.csv
