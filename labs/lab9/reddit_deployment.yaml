@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reddit-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reddit-app
+  template:
+    metadata:
+      labels:
+        app: reddit-app
+    spec:
+      containers:
+      - name: reddit-container
+        # your image in Artifact Registry
+        image: us-west2-docker.pkg.dev/lab9-458705/reddit-apps/reddit-fastapi-app:latest
+        imagePullPolicy: Always                      # ← always pull the latest
+        ports:
+        - name: http                                  # ← give the port a name
+          containerPort: 8000
+        # override the CMD to bind on all interfaces
+        command:
+        - uvicorn
+        - reddit_app.app:app
+        - --host
+        - "0.0.0.0"
+        - --port
+        - "8000"
